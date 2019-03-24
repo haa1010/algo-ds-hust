@@ -10,7 +10,7 @@ void solution()
 {
     for(int i = 1 ; i <= n ;i++)
     {
-        printf("%d",arr[i]);
+        printf("%d ",arr[i]);
     }
     printf("\n");
 }
