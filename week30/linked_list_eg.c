@@ -47,11 +47,19 @@ void insertAfter(int u, int v)
 			break;
 		p=p->next;
 	}
-	if(p == NULL)
+	if(p == NULL)  //dont have any node have id=u
 		return;
 	Node* tmp = makeNode(v);
+	if(p==last)   //if p is last , update last is the last node
+	{
+		p->next=tmp;
+		tmp->next=NULL;
+		last=tmp;
+		return;
+	}
 	tmp->next=p->next;
 	p->next=tmp;	
+		
 }
 
 void removeNode( int v)
@@ -73,6 +81,9 @@ void removeNode( int v)
 		}
 		prev=prev->next;
 	}
+
+	if(prev==NULL) return;  //dont have any node have id=v to remove
+
 	prev->next=p->next;
 	free(p);
 }
@@ -89,9 +100,9 @@ int main()
 	for( int i = 1 ; i <= 10 ; i++)
 		addLast(i);
 	printList();
-	insertAfter(5, 13);
+	insertAfter(10, 13);
 	printList();	
-	removeNode(10);
+	removeNode(15);
 	printList();
 	return 0;	
 }
