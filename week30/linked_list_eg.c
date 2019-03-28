@@ -64,8 +64,9 @@ void insertAfter(int u, int v)
 
 void removeNode( int v)
 {
+	if(first==NULL) return;
 	Node* prev = first;
-	Node* p = makeNode(v);
+	Node *p = NULL;
 	if(prev->id==v)
 	{
 		first=prev->next;
@@ -76,15 +77,15 @@ void removeNode( int v)
 	{
 		if(prev->next != NULL && prev->next->id==v)
 		{
-			p = prev->next; 
+			p = prev->next;
+			prev->next=prev->next->next; 
 			break;
 		}
-		prev=prev->next;
+		prev = prev->next;
 	}
 
-	if(prev==NULL) return;  //dont have any node have id=v to remove
+	if(p==NULL) return;  //dont have any node have id=v to remove
 
-	prev->next=p->next;
 	free(p);
 }
 

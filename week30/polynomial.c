@@ -55,7 +55,7 @@ int polynomial(int k, int x)
 	Node* p = first;
 	for(Node* p  =first; p != NULL; p=p->next) 
 		{
-			ans += p->co * pow(x, p->po);
+			ans += p->co * pow(x, (p->po));
 			
 		}
 	return ans;

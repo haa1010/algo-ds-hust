@@ -19,7 +19,7 @@ void Try(int k)
             if(sum==n)
                 solution(k);
             else if(sum<n)
-                    Try(k+1);
+                Try(k+1);
             sum-=v;
         }
     }
