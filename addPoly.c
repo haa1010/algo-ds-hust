@@ -4,11 +4,33 @@ typedef struct
 {
     int coef;
     int exp;
+
     struct Polynom *next;
 } Polynom;
+  Polynom *PolySum, *node, *ptr, *ptr1, *ptr2, *Poly1, *Poly2;
+Node *makeNode(int co, int ex)
+{
+    Node *p = (Node *)malloc(sizeof(Node)); //allocate memory for p
+    p->coef = co;
+    p->exp = ex;
+    p->next = NULL;
+    return p;
+}
+
+void addLast(int co , int ex, node* last, node* first)
+{
+    Node *p = makeNode(co,ex);
+    if (last != NULL)
+        last->next = p;
+    last = p;
+    if (first == NULL)
+        first = p;
+   
+}
+
 void add()
 {
-    Polynom *PolySum, *node, *ptr, *ptr1, *ptr2;
+  
     Polynom *node = (Polynom *)malloc(sizeof(Polynom));
     PolySum = node;
     ptr1 = Poly1;
@@ -40,9 +62,10 @@ void add()
             //update ptr list 2
         }
 
-         node = (Polynom *)malloc(sizeof(Polynom));
+        node = (Polynom *)malloc(sizeof(Polynom));
+        ptr->next = node;
     }
-   
+
     if (ptr1 == NULL)
     {
         while (ptr2 != NULL)
@@ -70,7 +93,29 @@ void add()
     ptr->next = NULL;
 }
 
-int cal()
+void printList()
 {
-
+    for (Node *p = first; p != NULL; p = p->next)
+        printf("%d ", p->id);
+    printf("\n");
+}
+int main()
+{
+    node* poly1
+    printf("- Enter polynomial 1 ");
+    printf("Enter all polynomial 1's coefficients-exponents :");
+    for (int j = 0; j < 3; j++)
+    {
+        int temp1, temp2;
+        scanf("%d %d", &temp1, &temp2);
+        addLast(temp1, temp2);
+    }
+    printf("- Enter polynomial 2 ");
+    printf("Enter all polynomial 2's coefficients-exponents :");
+    for (int j = 0; j < 3; j++)
+    {
+        int temp1, temp2;
+        scanf("%d %d", &temp1, &temp2);
+        addLast(temp1, temp2);
+    }
 }

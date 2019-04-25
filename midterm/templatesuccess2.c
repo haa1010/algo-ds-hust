@@ -4,7 +4,7 @@ int main()
 {
     int n, appear[100000] = {0};
     //long long int *a = (long long int *)malloc(n * sizeof(long long int));
-    int a[1000];
+    int a[100000];
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
     {
@@ -31,6 +31,6 @@ int main()
             index = a[i];
         }
     }
-    printf("%d", a[index]);
+    printf("%d", max);
     return 0;
 }
