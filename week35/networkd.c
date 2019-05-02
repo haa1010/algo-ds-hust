@@ -81,83 +81,13 @@ void loadDataBuildTree(char *filename)
     fclose(f);
 }
 
-void printTree(Node *r)
-{
-    if (r == NULL)
-    {
-        printf("Tree has no data\n");
-        return;
-    }
-
-    printf(" %d :", r->ID);
-
-    for (Node *p = r->leftMostChild; p != NULL; p = p->rightSibling)
-    {
-        printf("  %d ", p->ID);
-    }
-    printf("\n");
-    for (Node *p = r->leftMostChild; p != NULL; p = p->rightSibling)
-    {
-        printTree(p);
-    }
-}
-
-int countNode(Node *r)
-{
-    //return number of the nodes of tree rooted at r
-
-    int cnt = 1;
-    Node *p = r->leftMostChild;
-    while (p != NULL)
-    {
-        cnt += countNode(p);
-        p = p->rightSibling;
-    }
-    return cnt;
-}
-
-int countLeaves(Node *r)
-{
-    if (r == NULL)
-        return 0;
-    if (r->leftMostChild == NULL)
-        return 1;
-    int cnt = 0;
-
-    Node *p = r->leftMostChild;
-    while (p != NULL)
-    {
-        cnt += countLeaves(p);
-        p = p->rightSibling;
-    }
-
-    return cnt;
-}
-
-int height(Node *r)
-{
-    //return the height of node r
-    if (r == NULL)
-        return 0;
-    Node *p = r->leftMostChild;
-    int h = 0;
-    while (p != NULL)
-    {
-        int hp = height(p);
-        if (hp > h)
-            h = hp;
-        p = p->rightSibling;
-    }
-    return h + 1;
-}
-
 int depth1(Node *q, int dq, int u)
 {
     //compute the depth of u in the subtree rooted at q , dq is the depth of q
     if (q == NULL)
         return -1;
     if (q->ID == u)
-        return dq + 1;
+        return dq;
     Node *p = q->leftMostChild;
     while (p != NULL)
     {
@@ -176,69 +106,60 @@ int depth(Node *r, int u)
     //return the depth of the node ID = u of the tree rooted at r
     if (r == NULL)
         return 0;
-    Node *p = find(root, 4);
-    return depth1(p, 1, u);
+    return depth1(r, 1, u);
 }
 
-void preOrder(Node *r)
+int sum = 0;
+int sumDepth(Node *r)
 {
-    if (r == NULL)
-        return;
-    printf("%d ", r->ID);
-    Node *p = r->leftMostChild;
-    while (p != NULL)
-    {
-        preOrder(p);
-        p = p->rightSibling;
-    }
-}
-
-void inOrder(Node *r)
-{
-    if (r == NULL)
-        return;
-    inOrder(r->leftMostChild);
-    printf("%d ", r->ID);
-    if (r->leftMostChild == NULL)
-        return;
-    Node *p = r->leftMostChild->rightSibling;
-    while (p != NULL)
-    {
-        inOrder(p);
-        p = p->rightSibling;
-    }
-}
-
-void postOrder(Node *r)
-{
+    //post
     if (r == NULL)
         return;
     Node *p = r->leftMostChild;
     while (p != NULL)
     {
-        postOrder(p);
+        sumDepth(p);
         p = p->rightSibling;
     }
-    printf("%d ", r->ID);
+    printf("depth of %d is %d\n", r->ID, depth(root, r->ID));
+    sum += depth(root, r->ID);
+    return sum;
+
+    //preorder
+    // if (r == NULL)
+    //     return;
+    // printf("depth of %d is %d\n", r->ID, depth(root, r->ID));
+    // sum += depth(root, r->ID);
+    // Node *p = r->leftMostChild;
+    // while (p != NULL)
+    // {
+    //     sumDepth(p);
+    //     p = p->rightSibling;
+    // }
+    // return sum;
+
+    //inorder
+
+    // if (r == NULL)
+    //     return;
+    // sumDepth(r->leftMostChild);
+    // printf("depth of %d is %d\n", r->ID, depth(root, r->ID));
+    // sum+=depth(root,r->ID);
+    //     if (r->leftMostChild == NULL)
+    //     return;
+    // Node *p = r->leftMostChild->rightSibling;
+    // while (p != NULL)
+    // {
+    //     sumDepth(p);
+    //     p = p->rightSibling;
+    // }
+    // return sum;
+
 }
 
 int main()
 {
     loadDataBuildTree("INPUT");
-    printTree(root);
-    printf("node %d\n", countNode(root));
-    printf("leaves %d\n", countLeaves(root));
-    printf("depth of %d is %d\n", 10, depth(root, 10));
-    Node *p = find(root, 7);
-    printf("height of 7 is  %d\n", height(p));
-    printf("Pre  : ");
-    preOrder(root);
-    printf("\n");
-    printf("In   : ");
-    inOrder(root);
-    printf("\n");
-    printf("Post : ");
-    postOrder(root);
-    printf("\n");
+    printf("Sum depth is %d \n", sumDepth(root));
     return 0;
 }
