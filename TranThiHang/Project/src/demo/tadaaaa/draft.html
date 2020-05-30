@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>[For Taiyou]</title>
+    <link rel="shortcut icon" type="image/png" href="./src/demo/img/sun_moon.jpeg" />
+    <link rel="stylesheet" type="text/css" href="level2.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+    <h1>When did you hear the title of this song?</h1>
+    <input type="text" placeholder="Enter the text here" id="text">
+    <br>
+    <br>
+    <button type="button" class="btn btn-outline-warning button1" id="login" onclick="LetGo()">Let's go</button>
+    <br>
+    <label><input type="radio" name="first" value="0">0</label>
+    <label><input type="radio" name="first" value="1">1</label>
+    <label> <input type="radio" name="first" value="2">2</label>
+    <label> <input type="radio" name="first" value="3">3</label>
+
+    <br>
+
+    <label><input type="radio" name="second" value="0">0</label>
+    <label><input type="radio" name="second" value="1">1</label>
+    <label> <input type="radio" name="second" value="2">2</label>
+    <label> <input type="radio" name="second" value="3">3</label>
+
+    <br>
+
+    <label> <input type="radio" name="third" value="1">0</label>
+    <label> <input type="radio" name="third" value="1">1</label>
+    <label> <input type="radio" name="third" value="2">2</label>
+    <label> <input type="radio" name="third" value="3">3</label>
+
+    <br>
+
+    <label><input type="radio" name="fourth" value="0">0</label>
+    <label><input type="radio" name="fourth" value="1">1</label>
+    <label> <input type="radio" name="fourth" value="2">2</label>
+    <label> <input type="radio" name="fourth" value="3">3</label>
+
+
+    <button type="button" class="btn btn-outline-warning button1" id="login" >Let's go</button>
+
+</body>
+
+<script>
+    // function LetGo() {
+    //     var key = document.getElementById("text").value;
+    //     if (key == "And now :> We are a part of each other's life")
+    //         alert("congrats")
+    // }
+
+    $(document).ready(function () {
+        $("input[type='button']").click(function () {
+            var radioValue = $("input[name='first']:checked").val();
+            if (radioValue) {
+                alert("Your are a - " + radioValue);
+            }
+        });
+    });
+</script>
+
+</html>

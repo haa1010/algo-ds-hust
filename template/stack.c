@@ -17,6 +17,9 @@ typedef struct
 Stack *stackConstuct()
 {
     Stack *s = (Stack *)malloc(sizeof(Stack));
+    if (s == NULL)
+        return NULL;
+    s->top = NULL;
     return s;
 }
 

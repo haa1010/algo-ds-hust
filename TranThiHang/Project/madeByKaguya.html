@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>[For Mr. Sun]</title>
+    <link rel="shortcut icon" type="image/png" href="./src/demo/img/sun_moon.jpeg" />
+    <link rel="stylesheet" type="text/css" href="madeByKaguya.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Hiiiiii, Type your answer :> </h1>
+
+    <input class="set-margin" type="text" placeholder="Gud luck :>" id="input-field">
+    <br>
+    <br>
+    <button type="button" class="btn btn-outline-warning button1" id="login" onclick="LetGo()">Let's go</button>
+    <br>
+
+    <div id="hint1" class="set-margin">
+        <button type="button" class="btn btn-outline-warning" onclick="Hint()">Need some hints?</button>
+    </div>
+
+    <button type="button" onclick="test()">test</button>
+
+    <p id="hint"></p>
+
+</body>
+
+<script>
+    var count = 0;
+    function LetGo() {
+        count++;
+        var password = document.getElementById("input-field").value;
+        if (password == "Dzuong gami") { alert("Congrats!!!!!! +10 points "); window.location.href = './src/demo/tadaaaa/level2.html'; }
+        if (count == 3)
+            alert("WRONGGGGGG!!! Look at background picture :>")
+        if (count == 5)
+            alert("Okay. 5 times are enough :< Go to Messenger and look around :>")
+        if (password != "Dzuong gami")
+            alert("WRONGGGGGG!!! Think about it or you have to try 1010 times =))))")
+        console.log(count);
+    }
+
+    function Hint() {
+        document.getElementById("hint").innerHTML = "It has been spoiled =))))) Bakaaaaaaaa  "
+    }
+
+
+</script>
+
+</html>

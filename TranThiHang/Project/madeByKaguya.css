@@ -1,0 +1,25 @@
+* {
+    font-family: monospace;
+    background-image: url("./src/demo/img/oke.jpg");
+    text-align: center;
+}
+
+body {
+    text-align: center
+}
+
+.set-margin {
+    margin: 10 43%;
+}
+
+input {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+#login {
+    margin: 10 44%;
+    font-size: 40;
+}

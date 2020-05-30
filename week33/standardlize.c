@@ -41,7 +41,6 @@ void addData()
 
 void sorting()
 {
-
     for (Node *p = first; p != NULL; p = p->next)
     {
         for (Node *pj = p->next; pj != NULL; pj = pj->next)

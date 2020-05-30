@@ -1,0 +1,8 @@
+abc def abc xyz.abc,def., xyz
+Applies To
+In the C Language, the strcmp function can be used in the following versions:
+
+ANSI/ISO 9899-1990
+strcmp Example
+Let's look at an example to see how you would use the strcmp function in a C program
+h#

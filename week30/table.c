@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define maxn 1000+10
+#define maxn 1010
  
 int table[maxn][maxn];
 int n;

@@ -160,6 +160,6 @@ int sumDepth(Node *r)
 int main()
 {
     loadDataBuildTree("INPUT");
-    printf("Sum depth is %d \n", sumDepth(root));
+    printf("===> Sum depth is %d \n", sumDepth(root));
     return 0;
 }
